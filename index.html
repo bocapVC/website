@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="imagetoolbar" content="no">
-    <meta name="viewport" content="initial-scale=1.0,minimum-scale=1,maximum-scale=5">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     <meta name="format-detection" content="telephone=no">
     <title>
         MIYABI ARCHITECS
@@ -40,7 +40,7 @@ UA = 'others';
     <script type='application/ld+json'>
  { "@context":"http://schema.org", "@type":"WebSite", "@id":"#website", "url":"https://asmobius.co.jp/works/", "name":"MIYABI ARCHITECS - All" }
     </script>
-    <link rel="stylesheet" href="assets/css/bundle.css">
+    <link rel="stylesheet" href="./assets/css/bundle.css">
   </head>
   <body class="is-ready">
     <div id="wrapper">
@@ -555,7 +555,6 @@ document.querySelectorAll('.js-nav__link.about').forEach(link => {
       return;
     }
 
-    // (Opcional) Si quieres que TODOS los .js-nav__link naveguen duro, descomenta:
     if (a.classList.contains('js-nav__link') && isHardNavAnchor(a)) {
       ev.preventDefault();
       ev.stopPropagation();
