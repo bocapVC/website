@@ -102,8 +102,76 @@ header.nav{
 .about p{font-size:1.05rem}
 
 /* Footer */
-footer{padding:40px 0 60px; border-top:1px solid rgba(0,0,0,.08); margin-top:40px}
-.foot{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap}
+footer{
+  margin-top:clamp(64px, 12vw, 120px);
+  padding:clamp(48px, 8vw, 96px) 0 36px;
+  background:linear-gradient(180deg, rgba(233,236,239,.85) 0%, var(--white) 65%);
+  border-top:1px solid rgba(0,0,0,.06);
+}
+.foot{
+  display:grid;
+  gap:clamp(24px, 4vw, 40px);
+  grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+  align-items:flex-start;
+}
+.foot-brand{
+  display:grid;
+  gap:14px;
+  max-width:320px;
+}
+.foot-logo{
+  font-family:var(--serif);
+  font-size:1.1rem;
+  letter-spacing:.32rem;
+}
+.foot-logo span{
+  font-family:var(--sans);
+  font-weight:500;
+  letter-spacing:.12rem;
+}
+.foot-brand p{
+  margin:0;
+  font-size:.95rem;
+  line-height:1.7;
+  opacity:.8;
+}
+.foot-cta{align-self:start}
+.foot-column{
+  display:grid;
+  gap:14px;
+}
+.foot-heading{
+  text-transform:uppercase;
+  letter-spacing:.28rem;
+  font-size:.76rem;
+  opacity:.55;
+}
+.foot-links{
+  display:grid;
+  gap:10px;
+  font-size:.96rem;
+}
+.foot-links a{
+  opacity:.78;
+  transition:opacity .3s ease;
+}
+.foot-links a:hover{opacity:1}
+.foot-meta{
+  font-size:.92rem;
+  opacity:.65;
+}
+.foot-bottom{
+  margin-top:40px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+  font-size:.9rem;
+  opacity:.7;
+}
+.foot-bottom div:last-child{text-align:right}
+@media (max-width:600px){.foot-bottom div:last-child{text-align:left}}
 .social{display:flex; gap:12px; opacity:.85}
 
 /* Reveal */
