@@ -2,7 +2,7 @@
   <div>
     <header class="nav">
       <div class="wrap nav">
-        <div class="brand">MIYABI <span>ARCHITECT</span></div>
+        <RouterLink class="brand" to="/" @click="closeNav">MIYABI <span>ARCHITECT</span></RouterLink>
         <button
           class="nav-toggle"
           type="button"
@@ -18,7 +18,6 @@
           </span>
         </button>
         <nav id="primary-navigation" :class="{ open: isNavOpen }">
-          <RouterLink to="/" @click="closeNav">Inicio</RouterLink>
           <RouterLink :to="{ path: '/', hash: '#portfolio' }" @click="closeNav">Portafolio</RouterLink>
           <RouterLink to="/about" @click="closeNav">Sobre mí</RouterLink>
           <RouterLink :to="{ path: '/', hash: '#contact' }" @click="closeNav">Contacto</RouterLink>
