@@ -35,15 +35,15 @@
     <!-- CONTACT -->
     <section id="contact" class="section wrap">
       <div class="stitle">Contacto</div>
-      <div class="grid" style="grid-template-columns:1.1fr .9fr; gap:var(--gutter)">
+      <div class="grid contact-grid">
         <div class="reveal">
-          <h3 style="font-family:var(--serif); margin-top:0">Colaboraciones y encargos</h3>
+          <h3 class="contact-lead">Colaboraciones y encargos</h3>
           <p>Trabajo con clientes que buscan espacios residenciales o comerciales donde la estética dialoga con el bienestar emocional. Integro neuroarquitectura, filosofía japonesa y técnicas de Feng Shui en cada propuesta.</p>
           <p>¿Quieres conversar sobre tu proyecto? Escríbeme por WhatsApp y agendamos una sesión de descubrimiento.</p>
           <a class="btn primary" href="https://wa.me/59175954374" target="_blank" rel="noopener">Escríbeme por WhatsApp</a>
         </div>
         <div class="reveal" aria-label="Studio information">
-          <div style="padding:18px; border:1px solid rgba(0,0,0,.08); border-radius:16px; background:linear-gradient(180deg, var(--fog), transparent)">
+          <div class="contact-card">
             <p><strong>Estudios</strong><br> Kanazawa, Japón<br> Barcelona, España</p>
             <p><strong>Email</strong><br> <a href="mailto:miyabi.ro@gmail.com">miyabi.ro@gmail.com</a></p>
             <p><strong>WhatsApp</strong><br> <a href="https://wa.me/59175954374" target="_blank" rel="noopener">+591 75954374</a></p>

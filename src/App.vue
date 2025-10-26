@@ -3,11 +3,25 @@
     <header class="nav">
       <div class="wrap nav">
         <div class="brand">MIYABI <span>ARCHITECT</span></div>
-        <nav>
-          <RouterLink to="/">Inicio</RouterLink>
-          <RouterLink :to="{ path: '/', hash: '#portfolio' }">Portafolio</RouterLink>
-          <RouterLink to="/about">Sobre mí</RouterLink>
-          <RouterLink :to="{ path: '/', hash: '#contact' }">Contacto</RouterLink>
+        <button
+          class="nav-toggle"
+          type="button"
+          @click="toggleNav"
+          :aria-expanded="isNavOpen ? 'true' : 'false'"
+          aria-controls="primary-navigation"
+          aria-label="Mostrar u ocultar menú principal"
+        >
+          <span class="nav-toggle__icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+        <nav id="primary-navigation" :class="{ open: isNavOpen }">
+          <RouterLink to="/" @click="closeNav">Inicio</RouterLink>
+          <RouterLink :to="{ path: '/', hash: '#portfolio' }" @click="closeNav">Portafolio</RouterLink>
+          <RouterLink to="/about" @click="closeNav">Sobre mí</RouterLink>
+          <RouterLink :to="{ path: '/', hash: '#contact' }" @click="closeNav">Contacto</RouterLink>
         </nav>
       </div>
     </header>
@@ -52,5 +66,10 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
+
 const year = new Date().getFullYear()
+const isNavOpen = ref(false)
+const toggleNav = () => { isNavOpen.value = !isNavOpen.value }
+const closeNav = () => { isNavOpen.value = false }
 </script>
