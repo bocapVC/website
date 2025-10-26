@@ -4,7 +4,7 @@ const definitions = [
   {
     slug: 'departamento-monti',
     title: 'Departamento Monti',
-    location: 'Kanazawa, Japón',
+    location: 'Cochabamba, Bolivia',
     type: 'Residencial',
     tags: ['Luz natural', 'Feng Shui', 'Neuroarquitectura'],
     alt: 'Minimalist courtyard with timber and stone',
@@ -39,7 +39,7 @@ const definitions = [
   {
     slug: 'casa-gv',
     title: 'Casa GV',
-    location: 'Kyoto, Japón',
+    location: 'Cochabamba, Bolivia',
     type: 'Cultural',
     tags: ['Simetría', 'Luz cenital'],
     alt: 'Cultural pavilion with rhythmic roof',
@@ -73,7 +73,7 @@ const definitions = [
   {
     slug: 'departamento-sv',
     title: 'Departamento SV',
-    location: 'Barcelona, España',
+    location: 'Cochabamba, Bolivia',
     type: 'Interiores',
     tags: ['Bienestar', 'Shoji'],
     alt: 'Calm interior with shoji and soft light',
@@ -96,7 +96,7 @@ const definitions = [
   {
     slug: 'residencia-mj',
     title: 'Residencia MJ',
-    location: 'Internacional',
+    location: 'Cochabamba, Bolivia',
     type: 'Institucional',
     tags: ['Concentración', 'Luz natural'],
     alt: 'Institutional atrium with natural light',

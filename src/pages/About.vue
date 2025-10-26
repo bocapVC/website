@@ -11,7 +11,7 @@
         </p>
         <div class="about-hero__cta reveal">
           <RouterLink class="btn primary" to="/#portfolio">Ver portafolio</RouterLink>
-          <RouterLink class="btn outline" to="/#contact">Agenda una conversación</RouterLink>
+          <a class="btn outline" href="https://wa.me/59175954374" target="_blank" rel="noopener">Agenda una conversación</a>
         </div>
       </div>
     </section>

@@ -5,7 +5,12 @@ import Project from './pages/Project.vue'
 
 export default createRouter({
   history: createWebHistory(),
-  scrollBehavior() { return { top: 0 } },
+  scrollBehavior(to) {
+    if (to.hash) {
+      return { el: to.hash, behavior: 'smooth' }
+    }
+    return { top: 0 }
+  },
   routes: [
     { path: '/', component: Home },
     { path: '/about', component: About },
