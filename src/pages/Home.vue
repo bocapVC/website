@@ -4,8 +4,7 @@
     <section class="hero" id="home" aria-label="Hero">
       <div class="hero-content">
         <div class="accent" aria-hidden="true"></div>
-        <h1 class="reveal">MIYABI ROMÁN</h1>
-        <p class="sub reveal" style="transition-delay:.08s">Arquitectura emocional entre Kanazawa y Barcelona</p>
+        <h1 class="reveal">Miyabi Architects</h1>
         <div class="cta reveal" style="transition-delay:.16s">
           <a class="btn primary" href="#portfolio">Explorar portafolio</a>
           <RouterLink class="btn outline" to="/about">Conoce mi historia</RouterLink>
@@ -20,7 +19,7 @@
     <section id="portfolio" class="section wrap">
       <div class="stitle">Portafolio</div>
       <div class="grid cols-2">
-        <RouterLink class="card reveal" :to="`/projects/${p.slug}`" v-for="p in projects" :key="p.slug" :aria-label="`Open project: ${p.title}`">
+        <RouterLink class="card reveal" :to="`/projects/${p.slug}`" v-for="p in featuredProjects" :key="p.slug" :aria-label="`Open project: ${p.title}`">
           <img :src="p.cover" :alt="p.alt">
           <div class="overlay">
             <div>
@@ -29,6 +28,9 @@
             </div>
           </div>
         </RouterLink>
+      </div>
+      <div class="portfolio-more reveal">
+        <RouterLink class="btn outline" to="/projects">Ver más proyectos</RouterLink>
       </div>
     </section>
 
@@ -45,7 +47,7 @@
         <div class="reveal" aria-label="Studio information">
           <div class="contact-card">
             <p><strong>Estudios</strong><br> Kanazawa, Japón<br> Barcelona, España</p>
-            <p><strong>Email</strong><br> <a href="mailto:miyabi.ro@gmail.com">miyabi.ro@gmail.com</a></p>
+            <p><strong>Email</strong><br> <a href="mailto:miyabi.architects@gmail.com">miyabi.architects@gmail.com</a></p>
             <p><strong>WhatsApp</strong><br> <a href="https://wa.me/59175954374" target="_blank" rel="noopener">+591 75954374</a></p>
             <p><strong>Redes</strong></p>
             <div class="social">
@@ -59,8 +61,10 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import projects from '../projects/data.js'
+
+const featuredProjects = computed(() => projects.slice(0, 4))
 
 const observeReveal = () => {
   const io = new IntersectionObserver(entries => {
@@ -70,3 +74,11 @@ const observeReveal = () => {
 }
 onMounted(observeReveal)
 </script>
+
+<style scoped>
+.portfolio-more {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+}
+</style>

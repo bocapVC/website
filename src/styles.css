@@ -23,6 +23,17 @@ body{
 }
 img{max-width:100%; display:block}
 a{color:inherit; text-decoration:none}
+.sr-only{
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
+}
 
 .wrap{max-width:var(--maxw); margin-inline:auto; padding-inline:var(--gutter)}
 .section{padding:clamp(48px, 9vw, 120px) 0}
@@ -46,14 +57,25 @@ header.nav{
   padding-block:8px;
 }
 .brand{
-  font-family:var(--serif);
-  letter-spacing:2px;
-  font-weight:500;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
 }
-.brand span{
+.brand img{
+  height:40px;
+  width:auto;
+  display:block;
+}
+.brand-text{
+  font-family:var(--serif);
+  font-size:1.05rem;
+  letter-spacing:.18rem;
+  text-transform:uppercase;
+}
+.brand-text strong{
   font-family:var(--sans);
   font-weight:500;
-  letter-spacing:.5px;
+  letter-spacing:.08rem;
 }
 header.nav nav{
   display:flex;
@@ -192,7 +214,7 @@ header.nav nav a:hover{opacity:1}
 .hero::before{
   content:''; position:absolute; inset:0;
   background:
-    linear-gradient(to bottom, rgba(0,0,0,.4) 0%, rgba(0,0,0,.2) 30%, rgba(0,0,0,0) 60%),
+    linear-gradient(to bottom, rgba(0,0,0,.45) 0%, rgba(0,0,0,.25) 32%, rgba(0,0,0,0) 62%),
     url('./assets/hero.jpg') center/cover no-repeat;
   filter:saturate(95%);
   transform:translateZ(0);
@@ -201,14 +223,13 @@ header.nav nav a:hover{opacity:1}
 .hero::after{
   content:''; position:absolute; inset:0; pointer-events:none;
   background:
-    repeating-linear-gradient(90deg, rgba(255,255,255,.06) 0 1px, transparent 1px 140px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.07) 0 1px, transparent 1px 140px),
     repeating-linear-gradient(0deg, rgba(255,255,255,.05) 0 1px, transparent 1px 120px);
   mix-blend-mode:overlay; opacity:.9;
   animation:lines 18s linear infinite;
 }
-@keyframes lines{to{background-position:400px 240px, 240px 400px}}
 .hero-content{position:relative; z-index:2; text-align:center; color:var(--white); padding:calc(64px + 6vh) var(--gutter) 6vh}
-.hero h1{margin:0 0 .6rem; font-family:var(--serif); font-weight:500; letter-spacing:.2rem; font-size:clamp(32px, 6vw, 72px)}
+.hero h1{margin:0 0 .6rem; font-family:var(--serif); font-weight:500; letter-spacing:.28rem; text-transform:uppercase; font-size:clamp(32px, 6vw, 72px)}
 .hero p.sub{font-family:var(--sans); font-weight:300; letter-spacing:.12rem; text-transform:uppercase; opacity:.95; margin:0 0 1.6rem; font-size:clamp(12px, 1.6vw, 14px)}
 .hero .cta{display:flex; justify-content:center; gap:1rem; flex-wrap:wrap}
 
@@ -323,14 +344,13 @@ footer{
   max-width:320px;
 }
 .foot-logo{
-  font-family:var(--serif);
-  font-size:1.1rem;
-  letter-spacing:.32rem;
+  display:inline-flex;
+  align-items:center;
 }
-.foot-logo span{
-  font-family:var(--sans);
-  font-weight:500;
-  letter-spacing:.12rem;
+.foot-logo img{
+  max-width:140px;
+  width:100%;
+  height:auto;
 }
 .foot-brand p{
   margin:0;
@@ -397,7 +417,14 @@ footer{
 .reveal.in{opacity:1; transform:none}
 
 /* Accent */
-.accent{height:1px; width:64px; background:linear-gradient(90deg, var(--japan-red), transparent)}
+.accent{
+  height:3px;
+  width:120px;
+  margin:0 auto 18px;
+  border-radius:999px;
+  background:linear-gradient(90deg, transparent 0%, rgba(196,30,58,.15) 10%, var(--japan-red) 45%, var(--japan-red) 55%, rgba(196,30,58,.15) 90%, transparent 100%);
+  box-shadow:0 0 18px rgba(196,30,58,.45);
+}
 .gold{color:var(--gold)}
 
 /* About page */

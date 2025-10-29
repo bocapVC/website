@@ -4,7 +4,7 @@
       <div class="wrap about-hero__content">
         <RouterLink class="about-breadcrumb" to="/">← Volver al inicio</RouterLink>
         <p class="about-label reveal">Miyabi Román</p>
-        <h1 class="reveal">Arquitectura emocional con raíz japonesa.</h1>
+        <h1 class="reveal">Arquitectura japonesa.</h1>
         <p class="about-hero__text reveal">
           Arquitecta nacida en Kanazawa y formada en Barcelona. Fusiono la sensibilidad artesanal japonesa con la
           innovación del diseño contemporáneo para crear espacios que abracen bienestar, luz y armonía.
@@ -24,10 +24,11 @@
         </div>
         <div>
           <h2>Miyabi Román · Arquitecta</h2>
-          <p>Nací en Kanazawa, ciudad japonesa reconocida por su herencia artesanal y jardines históricos. Desde niña me cautivó la relación entre objetos, luz y silencio; esa curiosidad se transformó en vocación arquitectónica.</p>
-          <p>Tras formarme como arquitecta amplié mis estudios con un posgrado en Diseño de Espacios Interiores en BAU, Centro Universitario de Diseño de Barcelona. Vivir en Europa me permitió entrelazar la sobriedad japonesa con la innovación del diseño occidental.</p>
-          <p>Mi práctica integra neuroarquitectura, filosofía japonesa y Feng Shui para transformar la experiencia emocional de cada espacio. Trabajo con materiales honestos, iluminación sensible y proporciones pensadas para cuidar mente y cuerpo.</p>
-          <p>Cada proyecto nace de un diálogo profundo: desde residencias privadas hasta espacios comerciales, construyo soluciones a medida que equilibran estética, funcionalidad y energía. Apuesto por una arquitectura consciente, disciplinada y poética, arraigada en valores de armonía y belleza esencial.</p>
+          <p>Nació en Kanazawa, una ciudad tradicional en la costa este de Japón, reconocida por su herencia artesanal, jardines históricos y sensibilidad estética. Desde temprana edad mostró una inclinación hacia las artes visuales, la composición espacial y la armonía de los objetos en su entorno, intereses que más adelante la llevaron a dedicarse por completo a la arquitectura y el diseño de interiores.</p>
+          <p>Arquitecta de formación, complementó su carrera con un posgrado en Diseño de Espacios Interiores en BAU, Centro Universitario de Diseño de Barcelona (España). Esta experiencia académica y cultural en Europa marcó profundamente su estilo, permitiéndole fusionar la sobriedad y precisión de la estética japonesa con la innovación y funcionalidad del diseño contemporáneo occidental.</p>
+          <p>Su enfoque combina una mirada humanista y sensorial del diseño, incorporando principios de neuroarquitectura, filosofía japonesa y técnicas de Feng Shui. Su trabajo busca no solo embellecer los espacios, sino mejorar el bienestar emocional y mental de quienes los habitan, mediante una cuidada elección de materiales, iluminación, texturas y proporciones.</p>
+          <p>Cada proyecto es concebido con intención: desde residencias privadas hasta espacios comerciales de alto nivel, desarrolla propuestas a medida y en diálogo cercano con cada cliente, logrando un equilibrio entre estética, funcionalidad y energía.</p>
+          <p>Reconocida por su disciplina, compromiso y sensibilidad artística, se ha consolidado como una profesional que apuesta por una arquitectura emocional, consciente y profundamente arraigada en valores como la armonía, el silencio y la belleza esencial.</p>
         </div>
       </div>
     </section>

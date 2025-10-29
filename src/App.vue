@@ -2,7 +2,10 @@
   <div>
     <header class="nav">
       <div class="wrap nav">
-        <RouterLink class="brand" to="/" @click="closeNav">MIYABI <span>ARCHITECT</span></RouterLink>
+        <RouterLink class="brand" to="/" @click="closeNav">
+          <img :src="brandLogo" alt="Miyabi Architect logo">
+          <span class="brand-text">Miyabi <strong>Architect</strong></span>
+        </RouterLink>
         <button
           class="nav-toggle"
           type="button"
@@ -28,14 +31,15 @@
     <footer>
       <div class="wrap foot">
         <div class="foot-brand">
-          <div class="foot-logo">MIYABI <span>ARCHITECT</span></div>
+          <div class="foot-logo">
+            <img :src="brandLogo" alt="Miyabi Architect logo">
+          </div>
           <p>Arquitectura emocional que integra neuroarquitectura, luz precisa y calma japonesa para crear espacios que cuidan a sus habitantes.</p>
           <a class="btn primary foot-cta" href="https://wa.me/59175954374" target="_blank" rel="noopener">Agenda una conversación</a>
         </div>
         <div class="foot-column">
           <span class="foot-heading">Explora</span>
           <nav class="foot-links">
-            <RouterLink to="/">Inicio</RouterLink>
             <RouterLink :to="{ path: '/', hash: '#portfolio' }">Portafolio</RouterLink>
             <RouterLink to="/about">Sobre mí</RouterLink>
             <RouterLink :to="{ path: '/', hash: '#contact' }">Contacto</RouterLink>
@@ -44,7 +48,7 @@
         <div class="foot-column">
           <span class="foot-heading">Contacto</span>
           <div class="foot-links">
-            <a href="mailto:miyabi.ro@gmail.com">miyabi.ro@gmail.com</a>
+            <a href="mailto:miyabi.architects@gmail.com">miyabi.architects@gmail.com</a>
             <a href="https://wa.me/59175954374" target="_blank" rel="noopener">+591 75954374</a>
           </div>
           <div class="foot-meta">Cochabamba, Bolivia</div>
@@ -66,9 +70,11 @@
 
 <script setup>
 import { ref } from 'vue'
+import brandLogoSrc from './assets/logo.png'
 
 const year = new Date().getFullYear()
 const isNavOpen = ref(false)
 const toggleNav = () => { isNavOpen.value = !isNavOpen.value }
 const closeNav = () => { isNavOpen.value = false }
+const brandLogo = brandLogoSrc
 </script>
