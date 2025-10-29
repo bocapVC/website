@@ -58,17 +58,7 @@
       </div>
     </section>
 
-    <section class="project-gallery">
-      <div class="wrap">
-        <h2>Experiencia visual</h2>
-      </div>
-      <div class="project-gallery__grid">
-        <figure v-for="(item, index) in gallery" :key="index" :class="['project-gallery__item', item.class]">
-          <img :src="item.src" :alt="item.alt">
-          <figcaption>{{ item.alt }}</figcaption>
-        </figure>
-      </div>
-    </section>
+    <ProjectGallery v-if="gallery.length" :items="gallery" />
 
     <section class="project-navigation wrap">
       <div class="project-navigation__links">
@@ -96,6 +86,7 @@
 import { computed, onBeforeUnmount, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import projects from '../projects/data.js'
+import ProjectGallery from '../components/gallery/ProjectGallery.vue'
 
 const route = useRoute()
 const router = useRouter()
