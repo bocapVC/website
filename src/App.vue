@@ -1,80 +1,96 @@
 <template>
-  <div>
-    <header class="nav">
-      <div class="wrap nav">
-        <RouterLink class="brand" to="/" @click="closeNav">
-          <img :src="brandLogo" alt="Miyabi Architect logo">
-          <span class="brand-text">Miyabi <strong>Architect</strong></span>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="wrap site-header__inner">
+        <RouterLink class="brand" to="/" @click="closeNav" aria-label="BOCAP inicio">
+          <img class="brand-logo" :src="brandLogo" alt="BOCAP" />
         </RouterLink>
+
         <button
           class="nav-toggle"
           type="button"
-          @click="toggleNav"
           :aria-expanded="isNavOpen ? 'true' : 'false'"
-          aria-controls="primary-navigation"
-          aria-label="Mostrar u ocultar menú principal"
+          aria-controls="site-navigation"
+          aria-label="Abrir o cerrar navegación"
+          @click="toggleNav"
         >
-          <span class="nav-toggle__icon" aria-hidden="true">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
-        <nav id="primary-navigation" :class="{ open: isNavOpen }">
-          <RouterLink :to="{ path: '/', hash: '#portfolio' }" @click="closeNav">Portafolio</RouterLink>
-          <RouterLink to="/about" @click="closeNav">Sobre mí</RouterLink>
-          <RouterLink :to="{ path: '/', hash: '#contact' }" @click="closeNav">Contacto</RouterLink>
+
+        <nav id="site-navigation" class="site-nav" :class="{ open: isNavOpen }">
+          <RouterLink v-for="link in navLinks" :key="link.to" :to="link.to" @click="closeNav">
+            {{ link.label }}
+          </RouterLink>
         </nav>
+
+        <RouterLink class="btn btn-primary header-cta" to="/contacto" @click="closeNav">
+          Contacto
+        </RouterLink>
       </div>
     </header>
+
     <RouterView />
-    <footer>
-      <div class="wrap foot">
-        <div class="foot-brand">
-          <div class="foot-logo">
-            <img :src="brandLogo" alt="Miyabi Architect logo">
+
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div class="footer-brand">
+          <div class="brand brand--footer">
+            <img class="brand-logo brand-logo--footer" :src="brandLogo" alt="BOCAP" />
           </div>
-          <p>Arquitectura emocional que integra neuroarquitectura, luz precisa y calma japonesa para crear espacios que cuidan a sus habitantes.</p>
-          <a class="btn primary foot-cta" href="https://wa.me/59175954374" target="_blank" rel="noopener">Agenda una conversación</a>
+          <p>
+            Impulsamos el desarrollo del capital emprendedor en Bolivia conectando inversión, conocimiento y colaboración regional.
+          </p>
         </div>
-        <div class="foot-column">
-          <span class="foot-heading">Explora</span>
-          <nav class="foot-links">
-            <RouterLink :to="{ path: '/', hash: '#portfolio' }">Portafolio</RouterLink>
-            <RouterLink to="/about">Sobre mí</RouterLink>
-            <RouterLink :to="{ path: '/', hash: '#contact' }">Contacto</RouterLink>
-          </nav>
+
+        <div class="footer-column">
+          <span class="footer-title">Principal</span>
+          <RouterLink v-for="link in navLinks" :key="`footer-${link.to}`" :to="link.to">
+            {{ link.label }}
+          </RouterLink>
         </div>
-        <div class="foot-column">
-          <span class="foot-heading">Contacto</span>
-          <div class="foot-links">
-            <a href="mailto:miyabi.architects@gmail.com">miyabi.architects@gmail.com</a>
-            <a href="https://wa.me/59175954374" target="_blank" rel="noopener">+591 75954374</a>
-          </div>
-          <div class="foot-meta">Cochabamba, Bolivia</div>
-        </div>
-        <div class="foot-column">
-          <span class="foot-heading">Redes</span>
-          <div class="foot-links">
-            <a href="https://www.instagram.com/miyabi.architects/?hl=es" target="_blank" rel="noopener">Instagram</a>
-          </div>
+
+        <div class="footer-column">
+          <span class="footer-title">Contacto</span>
+          <a :href="`mailto:${siteMeta.contactEmail}`">{{ siteMeta.contactEmail }}</a>
+          <RouterLink to="/contacto#membership">Membresía</RouterLink>
+          <RouterLink to="/contacto#alliances">Alianzas</RouterLink>
         </div>
       </div>
-      <div class="wrap foot-bottom">
-        <div>© {{ year }} Miyabi Architect</div>
-        <div>Arquitectura emocional · Kanazawa / Barcelona</div>
+
+      <div class="wrap footer-bottom">
+        <span>© {{ year }} BOCAP</span>
+        <span>Bolivia · Capital emprendedor · Ecosistema latinoamericano</span>
       </div>
     </footer>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import brandLogoSrc from './assets/logo.png'
+import { ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
+import brandLogo from './assets/logo.png'
+import { siteMeta } from './data/siteContent.js'
 
 const year = new Date().getFullYear()
+const route = useRoute()
 const isNavOpen = ref(false)
-const toggleNav = () => { isNavOpen.value = !isNavOpen.value }
-const closeNav = () => { isNavOpen.value = false }
-const brandLogo = brandLogoSrc
+
+const navLinks = [
+  { label: 'Sobre Nosotros', to: '/sobre-bocap' },
+  { label: 'Directorio', to: '/equipo' },
+  { label: 'Miembros', to: '/miembros' },
+  { label: 'Aliados', to: '/aliados' }
+]
+
+const toggleNav = () => {
+  isNavOpen.value = !isNavOpen.value
+}
+
+const closeNav = () => {
+  isNavOpen.value = false
+}
+
+watch(() => route.fullPath, closeNav)
 </script>

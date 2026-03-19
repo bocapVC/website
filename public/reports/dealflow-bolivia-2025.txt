@@ -1,0 +1,8 @@
+BOCAP
+Dealflow boliviano: tendencias de sectores y etapas
+
+Archivo demostrativo para validar descargas desde la biblioteca de reportes.
+
+- Sectores con mayor actividad
+- Etapas de inversión observadas
+- Señales de preparación para capital

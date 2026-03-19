@@ -1,0 +1,8 @@
+BOCAP
+Guía práctica de venture capital para nuevos miembros
+
+Contenido de ejemplo para validar el componente de reportes.
+
+- Tesis de inversión
+- Gobierno y seguimiento
+- Acompañamiento a portafolio

@@ -1,8 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from './pages/Home.vue'
 import About from './pages/About.vue'
-import Projects from './pages/Projects.vue'
-import Project from './pages/Project.vue'
+import Team from './pages/Team.vue'
+import Members from './pages/Members.vue'
+import Allies from './pages/Allies.vue'
+import Reports from './pages/Reports.vue'
+import Contact from './pages/Contact.vue'
 
 export default createRouter({
   history: createWebHistory(),
@@ -14,9 +17,17 @@ export default createRouter({
   },
   routes: [
     { path: '/', component: Home },
-    { path: '/about', component: About },
-    { path: '/projects', component: Projects },
-    { path: '/projects/:slug', component: Project, props: true },
+    { path: '/sobre-bocap', component: About },
+    { path: '/equipo', component: Team },
+    { path: '/miembros', component: Members },
+    { path: '/aliados', component: Allies },
+    { path: '/reportes', component: Reports },
+    { path: '/eventos', redirect: '/reportes' },
+    { path: '/noticias', redirect: '/reportes' },
+    { path: '/contacto', component: Contact },
+    { path: '/about', redirect: '/sobre-bocap' },
+    { path: '/projects', redirect: '/reportes' },
+    { path: '/projects/:slug', redirect: '/reportes' },
     { path: '/:pathMatch(.*)*', redirect: '/' }
   ]
 })
