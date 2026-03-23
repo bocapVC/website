@@ -6,6 +6,9 @@ Este proyecto ya incluye:
 - `public/robots.txt`
 - meta tags base en `index.html`
 - `public/CNAME` para el dominio `bocap.vc`
+- configuración SEO central en `src/config/seo.js`
+- datos estructurados JSON-LD
+- integración lista para Google Analytics 4 con `VITE_GA_ID`
 
 ## 1. Verificar el dominio en Google Search Console
 
@@ -81,3 +84,39 @@ El sitio está configurado como SPA con rutas hash (`#/ruta`).
 Eso evita problemas de 404 en GitHub Pages.
 
 Para una estrategia SEO más fuerte en el futuro, convendría migrar a rutas sin hash con hosting que soporte rewrites o prerender/SSR.
+
+## 7. Activar Google Analytics 4
+
+Pasos:
+
+1. Entra a Google Analytics.
+2. Crea una propiedad GA4 para `bocap.vc`.
+3. Copia el Measurement ID con formato:
+
+   `G-XXXXXXXXXX`
+
+4. En el proyecto, crea un archivo `.env.local`.
+5. Agrega:
+
+   `VITE_GA_ID=G-XXXXXXXXXX`
+
+6. Guarda el archivo.
+7. Si harás deploy por GitHub Actions, crea el mismo valor como secret o variable del entorno de build si más adelante lo necesitas centralizar en CI.
+8. Vuelve a desplegar el sitio.
+
+Nota:
+
+- Si `VITE_GA_ID` no existe, el sitio no carga Analytics.
+- El código ya está preparado para trackear navegación en rutas hash de la SPA.
+
+## 8. Validar datos estructurados
+
+Después del deploy:
+
+1. Abre la herramienta Rich Results Test de Google.
+2. Ingresa `https://bocap.vc/`.
+3. Verifica que Google detecte al menos:
+   - `Organization`
+   - `WebSite`
+
+Si quieres una validación adicional, puedes usar también el Schema Markup Validator.

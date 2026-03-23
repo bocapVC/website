@@ -1,5 +1,5 @@
 import { onBeforeUnmount, onMounted, ref } from 'vue'
-import { seoConfig } from '../seo-config.js'
+import { seoConfig } from '../config/seo.js'
 
 export function usePageEnhancements(title) {
   const observer = ref(null)
