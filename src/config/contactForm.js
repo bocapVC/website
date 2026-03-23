@@ -5,7 +5,7 @@ export const CONTACT_FORM_PROVIDERS = {
 
 export const contactFormConfig = {
   provider: CONTACT_FORM_PROVIDERS.GOOGLE_FORMS,
-  recipientEmail: 'contacto@bocap.bo',
+  recipientEmail: 'bocapbolivia@gmail.com',
   googleForms: {
     formId: '13L26lKRqN546lYPsPiMKdyISdAvInViVvXG83_ddpnA',
     actionUrl: 'https://docs.google.com/forms/d/13L26lKRqN546lYPsPiMKdyISdAvInViVvXG83_ddpnA/formResponse',

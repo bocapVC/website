@@ -11,7 +11,7 @@ export const siteMeta = {
   title: 'BOCAP · Capital emprendedor en Bolivia',
   description:
     'BOCAP impulsa el desarrollo del capital emprendedor en Bolivia conectando inversionistas, fondos, startups, aliados y actores del ecosistema.',
-  contactEmail: 'contacto@bocap.bo'
+  contactEmail: 'bocapbolivia@gmail.com'
 }
 
 export const homeHighlights = [
@@ -273,7 +273,7 @@ export const eventsUpcoming = [
     format: 'Presencial · Santa Cruz',
     summary:
       'Encuentro para discutir tesis de inversión, pipeline de startups y colaboración entre ángeles, fondos y corporativos.',
-    cta: 'mailto:contacto@bocap.bo?subject=Registro%20Foro%20BOCAP%20de%20inversi%C3%B3n%20temprana'
+    cta: 'mailto:bocapbolivia@gmail.com?subject=Registro%20Foro%20BOCAP%20de%20inversi%C3%B3n%20temprana'
   },
   {
     title: 'Taller de due diligence para redes de ángeles',
@@ -281,7 +281,7 @@ export const eventsUpcoming = [
     format: 'Virtual',
     summary:
       'Sesión aplicada sobre criterios de evaluación, documentación mínima y señales de preparación de startups para inversión.',
-    cta: 'mailto:contacto@bocap.bo?subject=Registro%20Taller%20de%20due%20diligence'
+    cta: 'mailto:bocapbolivia@gmail.com?subject=Registro%20Taller%20de%20due%20diligence'
   },
   {
     title: 'Cumbre Bolivia-Latam de capital emprendedor',
@@ -289,7 +289,7 @@ export const eventsUpcoming = [
     format: 'Híbrido · La Paz',
     summary:
       'Conversación regional sobre oportunidades compartidas, coinversión, mejores prácticas y visibilidad del mercado boliviano.',
-    cta: 'mailto:contacto@bocap.bo?subject=Registro%20Cumbre%20Bolivia-Latam'
+    cta: 'mailto:bocapbolivia@gmail.com?subject=Registro%20Cumbre%20Bolivia-Latam'
   },
   {
     title: 'Demo Day de miembros BOCAP',
@@ -297,7 +297,7 @@ export const eventsUpcoming = [
     format: 'Presencial · Cochabamba',
     summary:
       'Espacio curado para conectar a founders, inversionistas y aliados alrededor de startups con señales claras de crecimiento.',
-    cta: 'mailto:contacto@bocap.bo?subject=Registro%20Demo%20Day%20BOCAP'
+    cta: 'mailto:bocapbolivia@gmail.com?subject=Registro%20Demo%20Day%20BOCAP'
   }
 ]
 

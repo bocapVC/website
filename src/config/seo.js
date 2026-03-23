@@ -7,8 +7,8 @@ export const seoConfig = {
   defaultDescription: 'Promoción y desarrollo de la industria del capital de riesgo en Bolivia',
   baseUrl,
   linkedinUrl: 'https://www.linkedin.com/company/bocap-bolivia',
-  contactEmail: 'contacto@bocap.bo',
-  defaultImage: `${baseUrl}/hero/hero-banner3.jpg`,
+  contactEmail: 'bocapbolivia@gmail.com',
+  defaultImage: `${baseUrl}/bocap-share-logo.png`,
   themeColor: '#16263f'
 }
 

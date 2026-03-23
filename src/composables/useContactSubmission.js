@@ -82,7 +82,7 @@ export const useContactSubmission = recipientEmail => {
       } catch {
         submissionState.value = 'error'
         feedbackTitle.value = 'No pudimos enviar tu mensaje'
-        feedbackMessage.value = 'Intenta nuevamente en unos minutos. Si el problema continua, puedes escribir a contacto@bocap.bo.'
+        feedbackMessage.value = 'Intenta nuevamente en unos minutos. Si el problema continúa, puedes escribir a bocapbolivia@gmail.com.'
         return false
       }
     }
