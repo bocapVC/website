@@ -1,8 +1,9 @@
 import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { seoConfig } from '../seo-config.js'
 
 export function usePageEnhancements(title) {
   const observer = ref(null)
-  const defaultTitle = typeof document !== 'undefined' ? document.title : 'BOCAP'
+  const defaultTitle = typeof document !== 'undefined' ? document.title : seoConfig.defaultTitle
 
   const observeReveal = () => {
     if (typeof window === 'undefined' || typeof IntersectionObserver === 'undefined') return

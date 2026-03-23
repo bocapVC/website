@@ -26,6 +26,7 @@ export default createRouter({
     { path: '/noticias', redirect: '/reportes' },
     { path: '/contacto', component: Contact },
     { path: '/about', redirect: '/sobre-bocap' },
+    { path: '/team', redirect: '/equipo' },
     { path: '/projects', redirect: '/reportes' },
     { path: '/projects/:slug', redirect: '/reportes' },
     { path: '/:pathMatch(.*)*', redirect: '/' }
