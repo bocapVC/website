@@ -101,13 +101,18 @@ Pasos:
    `VITE_GA_ID=G-XXXXXXXXXX`
 
 6. Guarda el archivo.
-7. Si harás deploy por GitHub Actions, crea el mismo valor como secret o variable del entorno de build si más adelante lo necesitas centralizar en CI.
-8. Vuelve a desplegar el sitio.
+7. En GitHub, ve a `Settings` → `Secrets and variables` → `Actions`.
+8. En `Variables`, crea una nueva variable de repositorio:
+
+   `VITE_GA_ID=G-XXXXXXXXXX`
+
+9. Vuelve a desplegar el sitio.
 
 Nota:
 
 - Si `VITE_GA_ID` no existe, el sitio no carga Analytics.
 - El código ya está preparado para trackear navegación en rutas hash de la SPA.
+- El workflow de GitHub Pages ya lee `VITE_GA_ID` desde `Repository Variables`.
 
 ## 8. Validar datos estructurados
 
