@@ -23,6 +23,9 @@
           <RouterLink v-for="link in navLinks" :key="link.to" :to="link.to" @click="closeNav">
             {{ link.label }}
           </RouterLink>
+          <RouterLink class="btn btn-primary site-nav__mobile-cta" to="/contacto" @click="closeNav">
+            Contacto
+          </RouterLink>
         </nav>
 
         <RouterLink class="btn btn-primary header-cta" to="/contacto" @click="closeNav">

@@ -4,6 +4,7 @@ import escalatecLogo from '../assets/members/escalatec-logo.svg'
 import ithinkVcLogo from '../assets/members/ithinkvc-logo.svg'
 import vivianaPhoto from '../assets/viviana.jpg'
 import corinaPhoto from '../assets/corina.jpg'
+import juanCruzPhoto from '../assets/juan-cruz.jpeg'
 import alvaroPhoto from '../assets/juancruz.jpg'
 
 export const siteMeta = {
@@ -109,7 +110,8 @@ export const teamMembers = [
       'Secretario de BOCAP y cofundador de iThink VC, aporta una mirada regional sobre inversión temprana y ha sido un actor clave en la consolidación del venture capital en Bolivia.',
     bio:
       'Juan Cruz Valdez Rojas es cofundador y socio general de iThink VC, firma que invierte en startups tempranas de América Latina con foco en ecosistemas emergentes. Su experiencia previa en consumo masivo, acero y agricultura le da una perspectiva estratégica y operativa poco común en venture capital. Desde BOCAP promueve vínculos entre inversionistas, emprendedores y fondos internacionales para acelerar la madurez del mercado boliviano.',
-    photo: '/team-placeholder.svg',
+    photo: juanCruzPhoto,
+    photoClass: 'profile-photo--juan-cruz',
     linkedin: 'https://ar.linkedin.com/in/juan-cruz-valdez-rojas'
   },
   {

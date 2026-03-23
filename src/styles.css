@@ -299,6 +299,10 @@ p {
   border-color: rgba(255, 255, 255, 0.7);
 }
 
+.site-nav > .site-nav__mobile-cta {
+  display: none;
+}
+
 .header-cta {
   justify-self: end;
   min-width: 124px;
@@ -988,6 +992,7 @@ p {
 
 .members-intro__lead h2 {
   font-size: clamp(1.9rem, 3vw, 2.8rem);
+  line-height: 1;
 }
 
 .members-intro__stats {
@@ -1982,8 +1987,13 @@ p {
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
+  object-position: center 28%;
   border-radius: 18px;
   background: linear-gradient(180deg, rgba(27, 40, 58, 0.12), rgba(27, 40, 58, 0.04));
+}
+
+.profile-photo--juan-cruz {
+  object-position: center 16%;
 }
 
 .profile-content {
@@ -2470,45 +2480,89 @@ p {
   position: absolute;
   display: grid;
   gap: 4px;
-  min-width: 150px;
-  padding: 16px 18px;
+  min-width: 170px;
+  max-width: 260px;
+  padding: 18px 20px;
   border-radius: 22px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.05)),
     rgba(15, 22, 34, 0.86);
-  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 18px 30px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  animation: regional-node-float 9s ease-in-out infinite;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.regional-home__node:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 24px 34px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .regional-home__node strong {
   font-family: var(--serif);
-  font-size: 1.28rem;
+  font-size: clamp(1.4rem, 2vw, 1.9rem);
+  line-height: 1.02;
   color: #fff;
 }
 
 .regional-home__node span {
   color: rgba(246, 242, 234, 0.72);
-  font-size: 0.88rem;
+  font-size: 0.92rem;
+  line-height: 1.3;
 }
 
 .regional-home__node--bolivia {
-  top: 32px;
-  left: 28px;
+  top: 34px;
+  left: 24px;
+  --regional-node-x: 0px;
+  --regional-node-y: -10px;
+  animation-delay: -0.6s;
 }
 
 .regional-home__node--latam {
-  top: 50px;
-  right: 26px;
+  top: 54px;
+  right: 20px;
+  --regional-node-x: 0px;
+  --regional-node-y: 12px;
+  animation-delay: -2.4s;
 }
 
 .regional-home__node--knowledge {
-  bottom: 34px;
-  left: 44px;
+  bottom: 28px;
+  left: 56px;
+  --regional-node-x: 0px;
+  --regional-node-y: 10px;
+  animation-delay: -4.8s;
 }
 
 .regional-home__node--capital {
-  bottom: 48px;
-  right: 44px;
+  bottom: 56px;
+  right: 58px;
+  --regional-node-x: 0px;
+  --regional-node-y: -12px;
+  animation-delay: -6.4s;
+}
+
+@keyframes regional-node-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(var(--regional-node-x, 0px), var(--regional-node-y, 0px), 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .regional-home__node {
+    animation: none;
+  }
 }
 
 .regional-home__metrics {
@@ -2631,10 +2685,21 @@ p {
     gap: 8px;
   }
 
-  .site-nav.open a {
+  .site-nav.open > a:not(.site-nav__mobile-cta) {
     padding: 12px 10px;
     border-radius: 8px;
     border-bottom: 0;
+  }
+
+  .site-nav.open > .site-nav__mobile-cta {
+    display: inline-flex;
+    width: 100%;
+    margin-top: 10px;
+    justify-content: center;
+    padding: 0.95rem 1.15rem;
+    border-radius: 999px;
+    border: 1px solid var(--red);
+    box-shadow: 0 10px 24px rgba(239, 42, 35, 0.22);
   }
 
   .hero-layout,
@@ -2642,6 +2707,7 @@ p {
   .home-intro,
   .split-highlight,
   .about-overview,
+  .members-intro,
   .regional-home__metrics,
   .narrative-grid,
   .dual-cards,
@@ -2708,6 +2774,53 @@ p {
     max-width: none;
   }
 
+  .page-hero {
+    padding-top: 116px;
+  }
+
+  .page-hero__content {
+    justify-items: start;
+    text-align: left;
+  }
+
+  .page-hero .page-lede {
+    max-width: 28ch;
+  }
+
+  .about-hero,
+  .team-hero {
+    min-height: 700px;
+  }
+
+  .page-hero--about::before {
+    background:
+      linear-gradient(180deg, rgba(8, 12, 18, 0.18), rgba(8, 12, 18, 0.72)),
+      linear-gradient(90deg, rgba(8, 12, 18, 0.72), rgba(8, 12, 18, 0.26) 52%, rgba(8, 12, 18, 0.14)),
+      var(--about-hero-image) center 18%/cover no-repeat;
+  }
+
+  .page-hero--team::before {
+    background:
+      linear-gradient(180deg, rgba(8, 12, 18, 0.24), rgba(8, 12, 18, 0.68)),
+      linear-gradient(90deg, rgba(8, 12, 18, 0.76), rgba(8, 12, 18, 0.28) 46%, rgba(8, 12, 18, 0.14)),
+      var(--team-hero-image) center 18%/cover no-repeat;
+  }
+
+  .page-hero--members::before {
+    background:
+      linear-gradient(180deg, rgba(8, 12, 18, 0.38), rgba(31, 53, 87, 0.56)),
+      linear-gradient(90deg, rgba(8, 12, 18, 0.66), rgba(8, 12, 18, 0.24) 54%, rgba(8, 12, 18, 0.38)),
+      url('./assets/miembros-hero.jpeg') center 20%/cover no-repeat;
+  }
+
+  .members-intro__lead h2 {
+    font-size: clamp(2rem, 7vw, 2.7rem);
+  }
+
+  .about-stat {
+    min-height: 0;
+  }
+
   .directory-grid--compact,
   .feature-grid,
   .feature-grid--about,
@@ -2739,12 +2852,58 @@ p {
     padding: 62px 0;
   }
 
+  .site-header {
+    top: 10px;
+  }
+
+  .site-header__inner {
+    padding: 10px 16px;
+    border-radius: 18px;
+  }
+
   .about-hero__badge {
     padding: 16px;
   }
 
   .about-hero {
-    min-height: 560px;
+    min-height: 640px;
+  }
+
+  .team-hero {
+    min-height: 640px;
+  }
+
+  .page-hero h1,
+  .about-hero__copy h1,
+  .contact-intro h1 {
+    font-size: clamp(2.55rem, 13vw, 3.7rem);
+  }
+
+  .page-hero .page-lede,
+  .about-stat span,
+  .contact-intro .page-lede {
+    font-size: 0.98rem;
+  }
+
+  .about-hero__stats {
+    gap: 12px;
+  }
+
+  .about-stat {
+    padding: 14px 16px;
+  }
+
+  .members-intro__lead,
+  .members-intro__stat {
+    padding: 20px;
+  }
+
+  .members-intro__lead h2 {
+    font-size: clamp(1.95rem, 10.2vw, 2.8rem);
+  }
+
+  .members-showcase-head h2 {
+    font-size: clamp(1.75rem, 9vw, 2.5rem);
   }
 
   .regional-home__content h2 {

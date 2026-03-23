@@ -16,7 +16,12 @@
       <div class="wrap team-grid">
         <article v-for="member in teamMembers" :key="member.name" class="profile-card profile-card--board reveal">
           <div class="profile-media">
-            <img v-if="member.photo" class="profile-photo" :src="member.photo" :alt="member.name" />
+            <img
+              v-if="member.photo"
+              :class="['profile-photo', member.photoClass]"
+              :src="member.photo"
+              :alt="member.name"
+            />
             <div v-else class="profile-avatar">{{ member.initials }}</div>
           </div>
           <div class="profile-content">
