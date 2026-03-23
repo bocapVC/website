@@ -7,22 +7,14 @@ import {
   isGoogleFormsConfigured
 } from '../config/contactForm.js'
 
-const buildMailtoMessage = (recipientEmail, form) => {
-  const subject = `[BOCAP] ${form.topic} · ${form.name}`
-  const body = [
-    `Nombre: ${form.name}`,
-    `Organizacion: ${form.organization || 'No especificada'}`,
-    `Email: ${form.email}`,
-    `Tema: ${form.topic}`,
-    '',
-    form.message
-  ].join('\n')
-
-  return `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+const normalizeTopicForGoogleForms = topic => {
+  if (topic === 'Membresía') return 'Membresia'
+  return topic
 }
 
 export const useContactSubmission = recipientEmail => {
   const submissionState = ref('idle')
+  const feedbackTitle = ref('')
   const feedbackMessage = ref('')
 
   const googleFormsEnabled = computed(() => {
@@ -34,22 +26,6 @@ export const useContactSubmission = recipientEmail => {
     return googleFormsEnabled.value
       ? CONTACT_FORM_PROVIDERS.GOOGLE_FORMS
       : CONTACT_FORM_PROVIDERS.MAILTO
-  })
-
-  const formAttributes = computed(() => {
-    if (provider.value !== CONTACT_FORM_PROVIDERS.GOOGLE_FORMS) {
-      return {
-        action: undefined,
-        method: undefined,
-        target: undefined
-      }
-    }
-
-    return {
-      action: getGoogleFormsActionUrl(contactFormConfig.googleForms),
-      method: 'POST',
-      target: contactFormConfig.googleForms.submitTarget
-    }
   })
 
   const fieldNames = computed(() => {
@@ -64,32 +40,69 @@ export const useContactSubmission = recipientEmail => {
       : []
   })
 
-  const submitForm = (event, form) => {
+  const resetFeedback = () => {
+    if (submissionState.value !== 'idle' || feedbackTitle.value || feedbackMessage.value) {
+      submissionState.value = 'idle'
+      feedbackTitle.value = ''
+      feedbackMessage.value = ''
+    }
+  }
+
+  const submitForm = async form => {
     submissionState.value = 'submitting'
+    feedbackTitle.value = ''
+    feedbackMessage.value = ''
 
     if (provider.value === CONTACT_FORM_PROVIDERS.GOOGLE_FORMS) {
-      event.target.submit()
-      submissionState.value = 'success'
-      feedbackMessage.value = 'Mensaje enviado. El equipo de BOCAP lo revisara en breve.'
-      return
+      const formData = new URLSearchParams()
+
+      formData.append(fieldNames.value.name, form.name)
+      formData.append(fieldNames.value.organization, form.organization)
+      formData.append(fieldNames.value.email, form.email)
+      formData.append(fieldNames.value.topic, normalizeTopicForGoogleForms(form.topic))
+      formData.append(fieldNames.value.message, form.message)
+
+      for (const field of hiddenFields.value) {
+        formData.append(field.name, field.value)
+      }
+
+      try {
+        await fetch(getGoogleFormsActionUrl(contactFormConfig.googleForms), {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+          },
+          body: formData.toString()
+        })
+        submissionState.value = 'success'
+        feedbackTitle.value = 'Mensaje enviado correctamente'
+        feedbackMessage.value = 'Gracias por escribirnos. El equipo de BOCAP revisará tu consulta y te responderá pronto.'
+        return true
+      } catch {
+        submissionState.value = 'error'
+        feedbackTitle.value = 'No pudimos enviar tu mensaje'
+        feedbackMessage.value = 'Intenta nuevamente en unos minutos. Si el problema continua, puedes escribir a contacto@bocap.bo.'
+        return false
+      }
     }
 
-    window.location.href = buildMailtoMessage(
-      recipientEmail || contactFormConfig.recipientEmail,
-      form
-    )
-    submissionState.value = 'success'
-    feedbackMessage.value = `Se abrio tu cliente de correo con el mensaje prellenado para ${recipientEmail}.`
+    submissionState.value = 'error'
+    feedbackTitle.value = 'Formulario no disponible'
+    feedbackMessage.value = `Por ahora puedes contactarnos directamente en ${recipientEmail || contactFormConfig.recipientEmail}.`
+    return false
   }
 
   return {
+    feedbackTitle,
     feedbackMessage,
     fieldNames,
-    formAttributes,
     hiddenFields,
+    isError: computed(() => submissionState.value === 'error'),
     isSubmitting: computed(() => submissionState.value === 'submitting'),
     isSuccessful: computed(() => submissionState.value === 'success'),
     provider,
-    usesIframeTransport: computed(() => provider.value === CONTACT_FORM_PROVIDERS.GOOGLE_FORMS)
+    resetFeedback,
+    submitForm
   }
 }

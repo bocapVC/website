@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from './pages/Home.vue'
 import About from './pages/About.vue'
 import Team from './pages/Team.vue'
@@ -8,7 +8,7 @@ import Reports from './pages/Reports.vue'
 import Contact from './pages/Contact.vue'
 
 export default createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   scrollBehavior(to) {
     if (to.hash) {
       return { el: to.hash, behavior: 'smooth' }

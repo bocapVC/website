@@ -7,17 +7,14 @@ export const contactFormConfig = {
   provider: CONTACT_FORM_PROVIDERS.GOOGLE_FORMS,
   recipientEmail: 'contacto@bocap.bo',
   googleForms: {
-    // Completar cuando exista el Google Form definitivo.
-    // Puedes usar solo formId o actionUrl directo.
-    formId: '',
-    actionUrl: '',
-    submitTarget: 'contact-form-google-forms-target',
+    formId: '13L26lKRqN546lYPsPiMKdyISdAvInViVvXG83_ddpnA',
+    actionUrl: 'https://docs.google.com/forms/d/13L26lKRqN546lYPsPiMKdyISdAvInViVvXG83_ddpnA/formResponse',
     fields: {
-      name: '',
-      organization: '',
-      email: '',
-      topic: '',
-      message: ''
+      name: 'entry.905177308',
+      organization: 'entry.370367197',
+      email: 'entry.313738678',
+      topic: 'entry.1004391731',
+      message: 'entry.2128493084'
     },
     hiddenFields: []
   }
@@ -34,7 +31,7 @@ export const defaultContactFieldNames = {
 export const getGoogleFormsActionUrl = (config = contactFormConfig.googleForms) => {
   if (config.actionUrl) return config.actionUrl
   if (config.formId) {
-    return `https://docs.google.com/forms/d/e/${config.formId}/formResponse`
+    return `https://docs.google.com/forms/d/${config.formId}/formResponse`
   }
 
   return ''

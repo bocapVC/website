@@ -1,3 +1,7 @@
+import babasuLogo from '../assets/members/babasu-ventures-logo.png'
+import cibersonsLogo from '../assets/members/cibersons-logo.svg'
+import escalatecLogo from '../assets/members/escalatec-logo.svg'
+import ithinkVcLogo from '../assets/members/ithinkvc-logo.svg'
 import vivianaPhoto from '../assets/viviana.jpg'
 import corinaPhoto from '../assets/corina.jpg'
 import alvaroPhoto from '../assets/juancruz.jpg'
@@ -19,7 +23,7 @@ export const homeHighlights = [
   {
     title: 'Data para decidir mejor',
     description:
-      'Convertimos señales del mercado en reportes, benchmarks y conversación sectorial útil para quienes construyen industria.'
+      'Convertimos señales del mercado en reportes, benchmarks y conversación sectorial útil para quienes construyen la industria.'
   },
   {
     title: 'Educación que eleva estándares',
@@ -63,7 +67,7 @@ export const aboutSections = {
   vision:
     'Posicionar a Bolivia como un mercado más confiable, visible y preparado para atraer, desplegar y escalar capital inteligente con estándares competitivos en América Latina.',
   role:
-    'BOCAP funciona como un puente entre el ecosistema boliviano y la conversación regional de venture capital. Ordena conversación, da visibilidad al mercado, impulsa aprendizaje compartido y ayuda a que Bolivia participe con mayor credibilidad en el mapa latinoamericano.'
+    'BOCAP funciona como un puente entre el ecosistema boliviano y la conversación regional de venture capital. Ordena la conversación, da visibilidad al mercado, impulsa aprendizaje compartido y ayuda a que Bolivia participe con mayor credibilidad en el mapa latinoamericano.'
 }
 
 export const strategicObjectives = [
@@ -118,17 +122,6 @@ export const teamMembers = [
       'Álvaro Villarroel es un referente del venture capital boliviano con trayectoria en finanzas corporativas y gestión de fondos. Desde Escalatec ha liderado inversiones en startups de alto potencial y ha impulsado conexiones estratégicas con clientes e inversionistas de la región. En BOCAP promueve mejores prácticas de inversión y una agenda de crecimiento sostenible para la industria local.',
     photo: alvaroPhoto,
     linkedin: 'https://bo.linkedin.com/in/alvaro-villarroel-val'
-  },
-  {
-    name: 'Andrés Aramayo',
-    role: 'Director Ejecutivo',
-    initials: 'AA',
-    summary:
-      'Director Ejecutivo de BOCAP, articula la operación institucional desde una trayectoria vinculada a innovación, emprendimiento, educación y turismo sostenible.',
-    bio:
-      'Andrés Aramayo Bejarano es emprendedor y articulador del ecosistema boliviano de innovación e inversión. Es fundador de Subo° – Sueño Bolivia y lidera iniciativas como el Observatorio ORBITA y Visit Bolivia, conectando educación, desarrollo económico sostenible y oportunidades para jóvenes y mujeres. En BOCAP coordina la ejecución de la agenda institucional y el fortalecimiento del ecosistema de startups y fondos emergentes.',
-    photo: '/team-placeholder.svg',
-    linkedin: 'https://bo.linkedin.com/in/aaab'
   }
 ]
 
@@ -136,157 +129,67 @@ export const members = [
   {
     name: 'Babasú Ventures',
     badge: 'BV',
-    category: 'Fondos',
-    type: 'Impact venture capital',
-    description: 'Invierte en startups con potencial de crecimiento e impacto, articulando capital, criterio de inversión y acceso a red para escalar compañías desde Bolivia.',
+    category: 'Fondo',
+    type: 'Venture capital de impacto',
+    description:
+      'Invierte en startups con potencial de crecimiento e impacto, combinando capital, acompañamiento y visión estratégica para escalar innovación desde Bolivia hacia la región.',
     region: 'Bolivia · LatAm',
     focus: ['Impacto', 'Early-stage', 'Capital inteligente'],
     wordmark: 'Babasú Ventures',
+    logo: babasuLogo,
+    logoClass: 'member-card__logo-image--babasu',
     accent: '#18704b',
-    glow: 'rgba(24, 112, 75, 0.18)'
+    glow: 'rgba(24, 112, 75, 0.18)',
+    website: 'https://www.babasuventures.com/'
   },
   {
     name: 'Cibersons',
     badge: 'CB',
-    category: 'Corporativos',
-    type: 'Innovación y talento tecnológico',
-    description: 'Promueve talento, innovación y adopción tecnológica en Bolivia, conectando capacidades de desarrollo con nuevas oportunidades para startups y compañías en crecimiento.',
+    category: 'Tecnología',
+    type: 'Desarrollo digital e innovación',
+    description:
+      'Promueve talento, innovación y transformación digital en Bolivia, conectando capacidades tecnológicas con nuevas oportunidades para empresas, startups y ecosistema.',
     region: 'Bolivia',
     focus: ['Tecnología', 'Talento', 'Innovación'],
     wordmark: 'cibersons',
+    logo: cibersonsLogo,
     accent: '#4164bd',
-    glow: 'rgba(65, 100, 189, 0.18)'
+    glow: 'rgba(65, 100, 189, 0.18)',
+    website: 'https://www.cibersons.com/'
   },
   {
     name: 'Escalatec',
     badge: 'ES',
-    category: 'Fondos',
+    category: 'Fondo',
     type: 'Fondo de capital emprendedor',
-    description: 'Apuesta por startups con alto potencial, acompañando a founders con capital, disciplina de crecimiento y conexiones relevantes para expandirse en la región.',
+    description:
+      'Invierte en startups con alto potencial y acompaña a founders con capital, disciplina de crecimiento y conexiones relevantes para expandirse en Bolivia y LATAM.',
     region: 'Bolivia · LatAm',
     focus: ['Scale-up', 'Tecnología', 'Expansión regional'],
     wordmark: 'ESCALATEC',
+    logo: escalatecLogo,
     accent: '#2c7fbd',
-    glow: 'rgba(44, 127, 189, 0.18)'
+    glow: 'rgba(44, 127, 189, 0.18)',
+    website: 'https://escalatec.vc/'
   },
   {
     name: 'iThink VC',
     badge: 'IV',
-    category: 'Inversionistas',
+    category: 'VC',
     type: 'Firma de venture capital',
-    description: 'Conecta startups con capital inteligente y oportunidades de inversión estratégica, fortaleciendo la visibilidad de Bolivia dentro de la conversación regional de venture capital.',
+    description:
+      'Conecta startups con capital inteligente y oportunidades de inversión estratégica, fortaleciendo la visibilidad de Bolivia dentro de la conversación regional de venture capital.',
     region: 'Bolivia · LATAM',
     focus: ['VC', 'Dealflow', 'Coinversión'],
     wordmark: 'iThink VC',
+    logo: ithinkVcLogo,
     accent: '#ef5a23',
-    glow: 'rgba(239, 90, 35, 0.18)'
-  },
-  {
-    name: 'Altiplano Capital',
-    badge: 'AC',
-    category: 'Fondos',
-    type: 'Growth capital',
-    description: 'Acompaña compañías en expansión con visión de largo plazo, institucionalización y conexión regional.',
-    region: 'Bolivia',
-    focus: ['Growth', 'Gobernanza', 'Institucionalización'],
-    wordmark: 'Altiplano Capital',
-    accent: '#7d5d31',
-    glow: 'rgba(125, 93, 49, 0.16)'
-  },
-  {
-    name: 'Bolivia Angels Circle',
-    badge: 'BA',
-    category: 'Inversionistas',
-    type: 'Club de inversión',
-    description: 'Red de personas inversionistas interesadas en oportunidades de alto potencial y aprendizaje colectivo.',
-    region: 'Bolivia',
-    focus: ['Ángeles', 'Syndicates', 'Aprendizaje colectivo'],
-    wordmark: 'Bolivia Angels',
-    accent: '#a33f52',
-    glow: 'rgba(163, 63, 82, 0.16)'
-  },
-  {
-    name: 'LaunchPad Andino',
-    badge: 'LA',
-    category: 'Aceleradoras',
-    type: 'Venture builder',
-    description: 'Articula founders, talento experto y validación de mercado para construir compañías más invertibles.',
-    region: 'Bolivia · Región andina',
-    focus: ['Venture building', 'Founders', 'Validación'],
-    wordmark: 'LaunchPad Andino',
-    accent: '#b0542d',
-    glow: 'rgba(176, 84, 45, 0.16)'
-  },
-  {
-    name: 'Impacto Corporativo',
-    badge: 'IC',
-    category: 'Corporativos',
-    type: 'Corporate innovation',
-    description: 'Integra estrategia corporativa e innovación con alianzas que fortalecen el pipeline emprendedor.',
-    region: 'Bolivia',
-    focus: ['Open innovation', 'Pilotos', 'Partnerships'],
-    wordmark: 'Impacto Corp.',
-    accent: '#35566e',
-    glow: 'rgba(53, 86, 110, 0.16)'
-  },
-  {
-    name: 'Lex Start Advisory',
-    badge: 'LS',
-    category: 'Servicios',
-    type: 'Asesoría legal',
-    description: 'Especialistas en estructura societaria, inversión, stock options y marcos contractuales para startups.',
-    region: 'Bolivia · LATAM',
-    focus: ['Legal', 'Structuring', 'Startups'],
-    wordmark: 'Lex Start',
-    accent: '#414141',
-    glow: 'rgba(65, 65, 65, 0.16)'
+    glow: 'rgba(239, 90, 35, 0.18)',
+    website: 'https://www.ithink.vc/'
   }
 ]
 
-export const allies = [
-  {
-    name: 'Red VC Latam',
-    badge: 'RV',
-    region: 'Latinoamérica',
-    description: 'Alianza orientada a intercambio de aprendizajes, benchmark regional y presencia compartida en foros estratégicos.',
-    impact: 'Colaboración regional'
-  },
-  {
-    name: 'Observatorio de Innovación Andina',
-    badge: 'OI',
-    region: 'Región andina',
-    description: 'Producción conjunta de conocimiento sobre emprendimiento, innovación y tendencias de inversión.',
-    impact: 'Data e investigación'
-  },
-  {
-    name: 'Pacto Scale Network',
-    badge: 'PN',
-    region: 'Latam',
-    description: 'Red de conexión para founders, gestores y equipos de aceleración con enfoque en crecimiento transfronterizo.',
-    impact: 'Conexión de ecosistema'
-  },
-  {
-    name: 'Capital Futuro Forum',
-    badge: 'CF',
-    region: 'Internacional',
-    description: 'Espacio de visibilidad para posicionar la narrativa de Bolivia ante comunidades globales de innovación e inversión.',
-    impact: 'Proyección internacional'
-  },
-  {
-    name: 'Academia Venture Studio',
-    badge: 'AV',
-    region: 'Bolivia y Latam',
-    description: 'Programas conjuntos para formación práctica en venture capital, due diligence, portfolio support y gobernanza.',
-    impact: 'Educación aplicada'
-  },
-  {
-    name: 'Coalición de Mujeres Inversionistas',
-    badge: 'CM',
-    region: 'Latinoamérica',
-    description: 'Iniciativas compartidas para ampliar la participación femenina en inversión, liderazgo y toma de decisiones.',
-    impact: 'Diversidad e inclusión'
-  }
-]
+export const allies = []
 
 export const reports = [
   {
@@ -487,8 +390,9 @@ export const news = [
 
 export const contactTopics = [
   'Membresía',
-  'Alianzas institucionales',
-  'Reportes e investigación',
-  'Eventos y participación',
-  'Prensa y visibilidad'
+  'Alianzas Institucionales',
+  'Reportes e Investigación',
+  'Eventos y Participación',
+  'Prensa y Visibilidad',
+  'Otro'
 ]

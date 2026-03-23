@@ -15,49 +15,41 @@
         <div class="members-intro reveal">
           <article class="surface members-intro__lead">
             <p class="eyebrow">Comunidad</p>
-            <h2>Una red de fondos, inversionistas, plataformas y organizaciones que hoy le dan forma al capital emprendedor en Bolivia.</h2>
+            <h2>Los miembros que hoy le dan forma al capital emprendedor en Bolivia desde inversión, tecnología y conexión regional.</h2>
             <p>
-              Este directorio reúne actores con capacidad de inversión, acompañamiento, conocimiento sectorial y conexión regional. No es solo una lista: es la fotografía de una industria que empieza a tomar estructura.
+              Esta sección presenta a los miembros que hoy forman parte de BOCAP con presencia visible en el ecosistema. Cada perfil conecta con su sitio oficial para facilitar relación, exploración y oportunidades de colaboración.
             </p>
           </article>
 
           <div class="members-intro__stats">
             <article class="surface members-intro__stat">
               <strong>{{ members.length }}</strong>
-              <span>miembros visibles</span>
+              <span>miembros activos</span>
             </article>
             <article class="surface members-intro__stat">
-              <strong>{{ categories.length - 1 }}</strong>
+              <strong>{{ categories.length }}</strong>
               <span>tipos de actor</span>
             </article>
             <article class="surface members-intro__stat">
-              <strong>{{ filteredMembers.length }}</strong>
-              <span>{{ activeCategory === 'Todos' ? 'resultados activos' : `en ${activeCategory}` }}</span>
+              <strong>Web</strong>
+              <span>acceso directo a sus sitios oficiales</span>
             </article>
           </div>
         </div>
 
-        <div class="filter-bar members-filter-bar reveal">
-          <div class="members-filter-bar__label">
-            <span class="card-label">Filtrar por tipo</span>
+        <div class="members-showcase-head reveal">
+          <div>
+            <p class="eyebrow">Miembros BOCAP</p>
+            <h2>Organizaciones con rol activo en la construcción del ecosistema.</h2>
           </div>
-          <div class="members-filter-bar__chips">
-            <button
-              v-for="category in categories"
-              :key="category"
-              class="filter-chip"
-              :class="{ active: activeCategory === category }"
-              type="button"
-              @click="activeCategory = category"
-            >
-              {{ category }}
-            </button>
-          </div>
+          <p>
+            Fondos, firmas y compañías que aportan capital, criterio, talento y red para impulsar una industria más conectada y visible.
+          </p>
         </div>
 
         <div class="directory-grid members-grid">
           <article
-            v-for="member in filteredMembers"
+            v-for="member in membersWithSiteMeta"
             :key="member.name"
             class="directory-card member-card reveal"
             :style="{ '--member-accent': member.accent, '--member-glow': member.glow }"
@@ -65,13 +57,26 @@
             <div class="member-card__brand">
               <div class="member-card__brand-meta">
                 <span class="card-label">{{ member.category }}</span>
-                <span class="member-card__region">{{ member.region }}</span>
+                <a
+                  class="member-card__site-link"
+                  :href="member.website"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visitar web
+                </a>
               </div>
               <div class="member-card__logo-wrap">
-                <div class="badge-mark member-card__badge">{{ member.badge }}</div>
-                <div class="member-card__logo" :class="{ 'member-card__logo--caps': member.wordmark === member.wordmark.toUpperCase() }">
+                <img
+                  v-if="member.logo"
+                  :class="['member-card__logo-image', member.logoClass]"
+                  :src="member.logo"
+                  :alt="`${member.name} logo`"
+                />
+                <div v-else class="member-card__logo" :class="{ 'member-card__logo--caps': member.wordmark === member.wordmark.toUpperCase() }">
                   {{ member.wordmark }}
                 </div>
+                <span class="member-card__site">{{ member.siteHost }}</span>
               </div>
             </div>
 
@@ -84,10 +89,21 @@
                 <span v-for="tag in member.focus" :key="tag">{{ tag }}</span>
               </div>
 
-              <div class="member-card__footer">
-                <span>Miembro BOCAP</span>
-                <span class="member-card__dot"></span>
-                <span>{{ member.region }}</span>
+              <div class="member-card__actions">
+                <div class="member-card__footer">
+                  <span>Miembro BOCAP</span>
+                  <span class="member-card__dot"></span>
+                  <span>{{ member.region }}</span>
+                </div>
+
+                <a
+                  class="btn btn-secondary member-card__cta"
+                  :href="member.website"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ir al sitio
+                </a>
               </div>
             </div>
           </article>
@@ -98,17 +114,17 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { usePageEnhancements } from '../composables/usePageEnhancements.js'
 import { members } from '../data/siteContent.js'
 
-const activeCategory = ref('Todos')
-const categories = ['Todos', ...new Set(members.map(member => member.category))]
-
-const filteredMembers = computed(() => {
-  if (activeCategory.value === 'Todos') return members
-  return members.filter(member => member.category === activeCategory.value)
-})
+const categories = [...new Set(members.map(member => member.category))]
+const membersWithSiteMeta = computed(() =>
+  members.map(member => ({
+    ...member,
+    siteHost: new URL(member.website).hostname.replace(/^www\./, '')
+  }))
+)
 
 usePageEnhancements('Miembros · BOCAP')
 </script>

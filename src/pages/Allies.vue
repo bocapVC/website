@@ -39,7 +39,7 @@
         <article class="feature-card reveal">
           <span class="card-label">Región</span>
           <h3>Puentes con Latinoamérica</h3>
-          <p>BOCAP articula a Bolivia con una conversación regional donde la cooperación es clave para acelerar madurez de mercado.</p>
+          <p>BOCAP articula a Bolivia con una conversación regional donde la cooperación es clave para acelerar la madurez del mercado.</p>
         </article>
       </div>
     </section>

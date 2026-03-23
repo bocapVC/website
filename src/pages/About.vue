@@ -51,7 +51,7 @@
           <div class="about-feature-block__media-card">
             <span class="card-label">Construcción de mercado</span>
             <strong>Cuatro frentes para ordenar una industria en formación.</strong>
-            <p>Agenda sectorial, inteligencia de mercado, capacidades y proyección regional trabajando sobre el mismo mapa.</p>
+            <p>Agenda sectorial, inteligencia de mercado, capacidades y proyección regional trabajan sobre el mismo mapa.</p>
           </div>
         </div>
 

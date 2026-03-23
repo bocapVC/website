@@ -54,8 +54,6 @@
         <div class="footer-column">
           <span class="footer-title">Contacto</span>
           <a :href="`mailto:${siteMeta.contactEmail}`">{{ siteMeta.contactEmail }}</a>
-          <RouterLink to="/contacto#membership">Membresía</RouterLink>
-          <RouterLink to="/contacto#alliances">Alianzas</RouterLink>
         </div>
       </div>
 

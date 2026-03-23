@@ -1,20 +1,8 @@
 <template>
   <form
     class="contact-form"
-    :action="formAttributes.action"
-    :method="formAttributes.method"
-    :target="formAttributes.target"
     @submit.prevent="handleSubmit"
   >
-    <iframe
-      v-if="usesIframeTransport"
-      :name="formAttributes.target"
-      class="contact-form__transport"
-      title="Transporte de formulario"
-      tabindex="-1"
-      aria-hidden="true"
-    ></iframe>
-
     <input
       v-for="field in hiddenFields"
       :key="field.name"
@@ -26,22 +14,22 @@
     <div class="form-grid">
       <label class="form-field">
         <span>Nombre</span>
-        <input v-model.trim="form.name" type="text" :name="fieldNames.name" autocomplete="name" required>
+        <input v-model.trim="form.name" type="text" :name="fieldNames.name" autocomplete="name" required @input="resetFeedback">
       </label>
 
       <label class="form-field">
         <span>Organización</span>
-        <input v-model.trim="form.organization" type="text" :name="fieldNames.organization" autocomplete="organization">
+        <input v-model.trim="form.organization" type="text" :name="fieldNames.organization" autocomplete="organization" @input="resetFeedback">
       </label>
 
       <label class="form-field">
         <span>Email</span>
-        <input v-model.trim="form.email" type="email" :name="fieldNames.email" autocomplete="email" required>
+        <input v-model.trim="form.email" type="email" :name="fieldNames.email" autocomplete="email" required @input="resetFeedback">
       </label>
 
       <label class="form-field">
         <span>Tema</span>
-        <select v-model="form.topic" :name="fieldNames.topic" required>
+        <select v-model="form.topic" :name="fieldNames.topic" required @change="resetFeedback">
           <option disabled value="">Selecciona una opción</option>
           <option v-for="topic in topics" :key="topic" :value="topic">{{ topic }}</option>
         </select>
@@ -56,20 +44,40 @@
         rows="6"
         :placeholder="placeholder"
         required
+        @input="resetFeedback"
       ></textarea>
     </label>
 
     <div class="form-actions">
-      <button class="btn btn-primary" type="submit" :disabled="isSubmitting">{{ submitLabel }}</button>
-      <p v-if="isSuccessful" class="form-feedback">
-        {{ feedbackMessage }}
-      </p>
+      <button class="btn btn-primary" type="submit" :disabled="isSubmitting">
+        {{ isSubmitting ? 'Enviando...' : submitLabel }}
+      </button>
+      <div
+        v-if="isSuccessful || isError"
+        ref="feedbackRef"
+        class="form-feedback"
+        :class="{
+          'form-feedback--success': isSuccessful,
+          'form-feedback--error': isError
+        }"
+        :role="isError ? 'alert' : 'status'"
+        :aria-live="isError ? 'assertive' : 'polite'"
+        tabindex="-1"
+      >
+        <div class="form-feedback__icon" aria-hidden="true">
+          {{ isError ? '!' : 'OK' }}
+        </div>
+        <div class="form-feedback__content">
+          <strong>{{ feedbackTitle }}</strong>
+          <p>{{ feedbackMessage }}</p>
+        </div>
+      </div>
     </div>
   </form>
 </template>
 
 <script setup>
-import { reactive } from 'vue'
+import { nextTick, reactive, ref } from 'vue'
 import { useContactSubmission } from '../composables/useContactSubmission.js'
 
 const props = defineProps({
@@ -99,18 +107,36 @@ const form = reactive({
   message: ''
 })
 
+const feedbackRef = ref(null)
+
 const {
+  feedbackTitle,
   feedbackMessage,
   fieldNames,
-  formAttributes,
   hiddenFields,
+  isError,
   isSubmitting,
   isSuccessful,
-  submitForm,
-  usesIframeTransport
+  resetFeedback,
+  submitForm
 } = useContactSubmission(props.email)
 
-const handleSubmit = event => {
-  submitForm(event, form)
+const resetForm = () => {
+  form.name = ''
+  form.organization = ''
+  form.email = ''
+  form.topic = ''
+  form.message = ''
+}
+
+const handleSubmit = async () => {
+  const wasSuccessful = await submitForm(form)
+
+  if (wasSuccessful) {
+    resetForm()
+  }
+
+  await nextTick()
+  feedbackRef.value?.focus()
 }
 </script>

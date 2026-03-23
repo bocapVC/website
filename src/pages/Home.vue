@@ -138,6 +138,60 @@
       </div>
     </section>
 
+    <section class="section section--regional-home">
+      <div class="wrap regional-home">
+        <div class="regional-home__content reveal">
+          <p class="eyebrow">Bolivia y Latinoamérica</p>
+          <h2>Bolivia entra mejor a la conversación regional cuando conecta con relaciones, criterio y visibilidad real.</h2>
+          <p class="regional-home__lede">
+            BOCAP abre puentes con fondos, asociaciones y actores clave de América Latina para acelerar aprendizaje, coinversión y mejores prácticas para el ecosistema boliviano.
+          </p>
+
+          <div class="regional-home__signals">
+            <article v-for="signal in regionalSignals" :key="signal.title" class="regional-home__signal">
+              <span class="card-label">{{ signal.label }}</span>
+              <h3>{{ signal.title }}</h3>
+              <p>{{ signal.description }}</p>
+            </article>
+          </div>
+
+          <div class="regional-home__actions">
+            <RouterLink class="btn btn-primary" to="/aliados">Ver aliados</RouterLink>
+            <RouterLink class="btn btn-ghost" to="/sobre-bocap">Cómo conecta BOCAP</RouterLink>
+          </div>
+        </div>
+
+        <div class="regional-home__board reveal">
+          <div class="regional-home__network">
+            <div class="regional-home__node regional-home__node--bolivia">
+              <strong>Bolivia</strong>
+              <span>Ecosistema local</span>
+            </div>
+            <div class="regional-home__node regional-home__node--latam">
+              <strong>LatAm</strong>
+              <span>Fondos y asociaciones</span>
+            </div>
+            <div class="regional-home__node regional-home__node--knowledge">
+              <strong>Mejores prácticas</strong>
+              <span>Aprendizaje aplicado</span>
+            </div>
+            <div class="regional-home__node regional-home__node--capital">
+              <strong>Coinversión</strong>
+              <span>Relaciones estratégicas</span>
+            </div>
+          </div>
+
+          <div class="regional-home__metrics">
+            <article v-for="metric in regionalMetrics" :key="metric.label" class="regional-home__metric">
+              <span class="card-label">{{ metric.label }}</span>
+              <strong>{{ metric.value }}</strong>
+              <p>{{ metric.description }}</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section section--tinted section--explore">
       <div class="wrap">
         <div class="section-head section-head--centered section-head--explore reveal">
@@ -281,6 +335,42 @@ const whyBocapPillars = [
     description:
       'Trabajamos para que más compañías locales lleguen mejor preparadas a capital, alianzas y conversación regional de venture capital.',
     icon: 'rocket'
+  }
+]
+
+const regionalSignals = [
+  {
+    label: 'Relaciones',
+    title: 'Puentes con actores que ya mueven capital en la región',
+    description: 'Acercamos a Bolivia a fondos, asociaciones y redes con experiencia práctica en venture capital latinoamericano.'
+  },
+  {
+    label: 'Visibilidad',
+    title: 'Más presencia para el ecosistema boliviano fuera del país',
+    description: 'Impulsamos narrativa, conexión y exposición para que startups e inversionistas locales entren mejor posicionados a la conversación regional.'
+  },
+  {
+    label: 'Aprendizaje',
+    title: 'Mejores prácticas que elevan estándares de mercado',
+    description: 'Convertimos vínculos regionales en aprendizajes útiles sobre inversión temprana, gobernanza, acompañamiento y crecimiento.'
+  }
+]
+
+const regionalMetrics = [
+  {
+    label: 'Relación',
+    value: 'LatAm',
+    description: 'Una agenda conectada con la conversación regional de venture capital.'
+  },
+  {
+    label: 'Enfoque',
+    value: '3 frentes',
+    description: 'Visibilidad, mejores prácticas y acceso a relaciones de inversión.'
+  },
+  {
+    label: 'Resultado',
+    value: 'Más señal',
+    description: 'Bolivia entra mejor posicionada cuando actúa como red, no como actor aislado.'
   }
 ]
 
