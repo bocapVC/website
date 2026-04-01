@@ -259,8 +259,10 @@ import { siteMeta } from '../data/siteContent.js'
 const heroSlides = [
   { image: '/hero/hero-banner2.png' },
   { image: '/hero/hero-banner3.jpg' },
-  { image: '/hero/hero-banner1.jpeg' },
-  { image: '/hero/hero-banner4.avif' }
+  { image: '/hero/hero-banner4.avif' },
+  { image: '/hero/WhatsApp Image 2026-04-01 at 10.23.21.jpeg' },
+  { image: '/hero/WhatsApp Image 2026-04-01 at 10.23.35.jpeg' },
+  { image: '/hero/WhatsApp Image 2026-04-01 at 10.23.58.jpeg' }
 ]
 
 const activeHeroIndex = ref(0)
